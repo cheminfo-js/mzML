@@ -1,3 +1,7 @@
+## [0.2.1](https://github.com/cheminfo-js/mzML/compare/v0.2.0...v0.2.1) (2019-10-30)
+
+
+
 # 0.2.0 (2019-10-30)
 
 

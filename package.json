@@ -1,6 +1,6 @@
 {
   "name": "mzml",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Read and explore mzML v1.1 files",
   "main": "lib/index.js",
   "module": "src/index.js",
