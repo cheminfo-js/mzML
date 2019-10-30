@@ -43,7 +43,8 @@
     "rollup": "^0.50.0"
   },
   "dependencies": {
-    "base64-js": "^1.2.1",
+    "base64-arraybuffer": "^0.2.0",
+    "pako": "^1.0.10",
     "sax": "^1.2.4"
   }
 }
