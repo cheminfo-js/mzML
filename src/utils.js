@@ -14,7 +14,7 @@ export function decoder(base64Encoded, options = {}) {
       break;
     default:
       throw new Error(
-        'utils.decoder: unknown compression: ' + compressionAlgorithm
+        `utils.decoder: unknown compression: ${compressionAlgorithm}`,
       );
   }
   if (!decoded.byteLength % 8) {
@@ -24,17 +24,17 @@ export function decoder(base64Encoded, options = {}) {
 }
 
 export function formatResult(spectra) {
-  var result = {
+  let result = {
     times: [],
     series: {
       ms: {
         data: [],
-        dimensions: 2
-      }
-    }
+        dimensions: 2,
+      },
+    },
   };
-  for (var index in spectra) {
-    var element = spectra[index];
+  for (let index in spectra) {
+    let element = spectra[index];
     if (element.time && element.mass && element.intensity) {
       result.times.push(Number(element.time));
       result.series.ms.data.push([element.mass, element.intensity]);

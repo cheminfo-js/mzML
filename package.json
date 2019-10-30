@@ -12,7 +12,7 @@
     "eslint": "eslint src",
     "eslint-fix": "npm run eslint -- --fix",
     "prepublish": "rollup -c",
-    "test": "run-s testonly eslint",
+    "test": "npm run testonly && npm run eslint",
     "test-travis": "eslint src && jest --coverage && codecov",
     "testonly": "jest",
     "build": "rollup -c && cheminfo build"
@@ -32,15 +32,18 @@
     "testEnvironment": "node"
   },
   "devDependencies": {
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
-    "cheminfo-tools": "^1.17.1",
-    "codecov": "^2.2.0",
-    "eslint": "^4.1.1",
-    "eslint-config-cheminfo": "^1.8.0",
-    "eslint-plugin-no-only-tests": "^2.0.0",
-    "jest": "^21.2.1",
-    "npm-run-all": "^4.0.2",
-    "rollup": "^0.50.0"
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "cheminfo-tools": "^1.23.3",
+    "codecov": "^3.6.1",
+    "eslint": "^6.6.0",
+    "eslint-config-cheminfo": "^2.0.3",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.21.0",
+    "eslint-plugin-no-only-tests": "^2.3.1",
+    "eslint-plugin-prettier": "^3.1.1",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2",
+    "rollup": "^1.26.0"
   },
   "dependencies": {
     "base64-arraybuffer": "^0.2.0",

@@ -1,4 +1,5 @@
 import { parser } from 'sax';
+
 import { decoder, formatResult } from './utils';
 
 const MASS = 1;
@@ -12,14 +13,14 @@ const INTENSITY = 2;
 export default function mzML(data) {
   const xml = parser(true, { trim: true });
 
-  var error = [];
-  var spectra = {};
-  var currentId;
-  var kind;
-  var nextData = {};
-  var readRaw;
+  let error = [];
+  let spectra = {};
+  let currentId;
+  let kind;
+  let nextData = {};
+  let readRaw;
 
-  xml.onopentag = node => {
+  xml.onopentag = (node) => {
     readRaw = node.name === 'binary';
 
     // eslint-disable-next-line default-case
@@ -56,12 +57,13 @@ export default function mzML(data) {
           case 'scan start time':
             spectra[currentId].time = node.attributes.value;
             break;
+          default:
         }
         break;
     }
   };
 
-  xml.ontext = raw => {
+  xml.ontext = (raw) => {
     if (readRaw && currentId) {
       if (nextData.kind === MASS) {
         spectra[currentId].mass = decoder(raw, nextData);
@@ -71,7 +73,7 @@ export default function mzML(data) {
     }
   };
 
-  xml.onerror = err => error.push(err);
+  xml.onerror = (err) => error.push(err);
   xml.write(data).close();
   if (!kind || kind !== 'mzML') {
     throw new TypeError('Not a mzML file');
