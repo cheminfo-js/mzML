@@ -1,11 +1,15 @@
 # mzML
 
-  [![NPM version][npm-image]][npm-url]
-  [![build status][travis-image]][travis-url]
-  [![Test coverage][codecov-image]][codecov-url]
-  [![npm download][download-image]][download-url]
+[![NPM version][npm-image]][npm-url]
+[![build status][travis-image]][travis-url]
+[![Test coverage][codecov-image]][codecov-url]
+[![npm download][download-image]][download-url]
 
 Read and explore mzML v1.1 files.
+
+## This project is abandoned !!!
+
+You should use https://github.com/cheminfo-js/mzdata that deals with mzml and mzdata file format
 
 ## Installation
 
@@ -14,7 +18,7 @@ Read and explore mzML v1.1 files.
 ## Usage
 
 ```js
-import {mzML} from 'mzml';
+import { mzML } from 'mzml';
 
 // mzML files
 const mzMLFile = readFileSync(__dirname + '/tiny.mzML');
@@ -25,7 +29,7 @@ var response = mzML(mzMLFile);
 
 ## License
 
-  [MIT](./LICENSE)
+[MIT](./LICENSE)
 
 [npm-image]: https://img.shields.io/npm/v/mzml.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/mzml

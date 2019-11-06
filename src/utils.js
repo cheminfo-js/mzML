@@ -6,7 +6,7 @@ export function decoder(base64Encoded, options = {}) {
   let decoded;
   switch (compressionAlgorithm) {
     case 'zlib':
-      decoded = pako.deflate(decode(base64Encoded));
+      decoded = pako.inflate(decode(base64Encoded));
       break;
     case undefined:
     case '':
@@ -14,10 +14,17 @@ export function decoder(base64Encoded, options = {}) {
       break;
     default:
       throw new Error(
-        `utils.decoder: unknown compression: ${compressionAlgorithm}`,
+        `utils.decoder: unknown compression: ${compressionAlgorithm}`
       );
   }
-  if (!decoded.byteLength % 8) {
+  console.log(
+    base64Encoded.length,
+    decode(base64Encoded),
+    decoded.byteLength,
+    decoded.byteLength % 8
+  );
+
+  if (decoded.byteLength % 8 !== 0) {
     throw new Error('decode to Float64Array not the right length');
   }
   return new Float64Array(decoded);
@@ -29,9 +36,9 @@ export function formatResult(spectra) {
     series: {
       ms: {
         data: [],
-        dimensions: 2,
-      },
-    },
+        dimensions: 2
+      }
+    }
   };
   for (let index in spectra) {
     let element = spectra[index];
